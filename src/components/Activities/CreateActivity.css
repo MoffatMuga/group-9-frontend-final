@@ -1,0 +1,24 @@
+
+.create-activity {
+    margin-top: 20px;
+  }
+  
+  .create-activity form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .create-activity input {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .create-activity button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
