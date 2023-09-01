@@ -1,0 +1,35 @@
+
+.sign-up {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .sign-up h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .sign-up form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sign-up input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .sign-up button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
