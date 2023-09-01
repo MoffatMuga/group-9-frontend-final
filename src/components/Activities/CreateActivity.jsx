@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import './CreateActivity.css'; 
 
 const CreateActivity = ({ onCreate }) => {
-  const [title, setTitle] = useState('');
+  const [selectedActivity, setSelectedActivity] = useState('');
   const [date, setDate] = useState('');
+
+  const activityOptions = ['Codility', 'Code Challenge', 'Labs']; 
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -12,12 +14,12 @@ const CreateActivity = ({ onCreate }) => {
     fetch('/api/activities', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, date }),
+      body: JSON.stringify({ name: selectedActivity, date }),
     })
       .then(response => response.json())
       .then(data => {
         onCreate(data);
-        setTitle('');
+        setSelectedActivity('');
         setDate('');
       });
   };
@@ -26,12 +28,18 @@ const CreateActivity = ({ onCreate }) => {
     <div className="create-activity">
       <h2>Create New Activity</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={event => setTitle(event.target.value)}
-          placeholder="Activity Title"
-        />
+        <select
+          value={selectedActivity}
+          onChange={event => setSelectedActivity(event.target.value)}
+          placeholder="Select Activity"
+        >
+          <option value="">Select an activity</option>
+          {activityOptions.map(option => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
         <input
           type="date"
           value={date}

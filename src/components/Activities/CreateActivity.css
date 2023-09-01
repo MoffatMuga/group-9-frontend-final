@@ -19,6 +19,7 @@
     flex-direction: column;
   }
   
+  .create-activity select,
   .create-activity input {
     padding: 8px;
     margin-bottom: 10px;
@@ -31,5 +32,16 @@
     color: #fff;
     border: none;
     cursor: pointer;
+  }
+  
+  
+  .create-activity select {
+    appearance: none;
+    background-color: white;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%233b3b3b'><polygon points='6 0 0 12 12 12' /></svg>");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    padding-right: 30px;
   }
   
