@@ -1,20 +1,24 @@
 
 import React, { useState } from 'react';
+import './CreateActivity.css'; 
 
 const CreateActivity = ({ onCreate }) => {
   const [title, setTitle] = useState('');
+  const [date, setDate] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
+    
     fetch('/api/activities', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title }),
+      body: JSON.stringify({ title, date }),
     })
       .then(response => response.json())
       .then(data => {
         onCreate(data);
         setTitle('');
+        setDate('');
       });
   };
 
@@ -27,6 +31,12 @@ const CreateActivity = ({ onCreate }) => {
           value={title}
           onChange={event => setTitle(event.target.value)}
           placeholder="Activity Title"
+        />
+        <input
+          type="date"
+          value={date}
+          onChange={event => setDate(event.target.value)}
+          placeholder="Activity Date"
         />
         <button type="submit">Create</button>
       </form>
